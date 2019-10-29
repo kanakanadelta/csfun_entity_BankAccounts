@@ -39,6 +39,7 @@ namespace BankAccounts.Models
         [DataType(DataType.Password)]
         public string Confirm { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime CreatedAt {get;set;} = DateTime.Now;
         public DateTime UpdatedAt {get;set;} = DateTime.Now;
 

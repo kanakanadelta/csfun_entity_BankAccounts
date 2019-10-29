@@ -139,7 +139,8 @@ namespace BankAccounts.Controllers
         [HttpPost("account/{userId}/transaction")]
         public IActionResult Transaction(
             Transaction submission, 
-            int userId
+            int userId,
+            double userBalance
             )
         {
             if(ModelState.IsValid)
@@ -149,7 +150,11 @@ namespace BankAccounts.Controllers
 
                 User currentUser = dbContext.Users.FirstOrDefault(user => user.UserId == sessionUserId);
 
-                
+                // withdrawal check
+                if(userBalance + submission.Amount < 0)
+                {
+                    return View("Account", new {userId = userId});
+                }
 
                 submission.User = currentUser;
 

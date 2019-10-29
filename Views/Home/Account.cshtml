@@ -22,10 +22,31 @@
         <input asp-for="Amount">
     </span>
     <span>
+      <input type="hidden" name="userBalance" value='@ViewBag.Balance'>
       <input type="submit" value="Submit">
     </span>
   </form>
 
-
+  <table>
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach(var t in ViewBag.Transactions)
+      {
+        <tr>
+          <td>
+            $@t.Amount
+          </td>
+          <td>
+              @t.CreatedAt.ToString("dddd, dd MMMM yyyy @ hh:mm tt")
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
 
 </div>
