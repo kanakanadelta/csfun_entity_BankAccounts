@@ -1,0 +1,14 @@
+<div>
+  @model Transaction
+  <form asp-controller="Home" action="Transaction">
+    <span>
+      <label for="Amount">Deposit/Withdraw: </label>
+    </span>
+    <span>
+        @Html.TextBoxFor(m => m.Amount, new {@class = "form-control"})
+    </span>
+    <span>
+      <input type="submit" value="Submit">
+    </span>
+  </form>
+</div>

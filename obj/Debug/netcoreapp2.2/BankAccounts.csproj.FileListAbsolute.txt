@@ -27,3 +27,5 @@
 /Users/rtongson/Documents/csharp/entity/BankAccounts/obj/Debug/netcoreapp2.2/BankAccounts.dll
 /Users/rtongson/Documents/csharp/entity/BankAccounts/obj/Debug/netcoreapp2.2/BankAccounts.pdb
 /Users/rtongson/Documents/csharp/entity/BankAccounts/obj/Debug/netcoreapp2.2/BankAccounts.csproj.CopyComplete
+/Users/rtongson/Documents/csharp/entity/BankAccounts/obj/Debug/netcoreapp2.2/Razor/Views/Home/Account.g.cshtml.cs
+/Users/rtongson/Documents/csharp/entity/BankAccounts/obj/Debug/netcoreapp2.2/Razor/Views/Home/TransactionPartial.g.cshtml.cs

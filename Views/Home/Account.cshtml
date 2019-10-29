@@ -1,0 +1,31 @@
+@{
+  ViewData["Title"] = "Your Account";
+}
+
+@using BankAccounts.Models;
+
+<div>
+  <h1>Welcome, @ViewBag.Name</h1>
+  <h2>Account #: @ViewBag.UserId</h2>
+  <h3>Your current balance: 
+    <span style="border: 1px solid #000;">
+        @ViewBag.Balance
+    </span>
+  </h3>
+  <!-- Insert Transaction Partial Here -->
+  @model Transaction
+  <form action="/account/@ViewBag.UserId/transaction" method="POST">
+    <span>
+      <label asp-for="Amount">Deposit/Withdraw: </label>
+    </span>
+    <span>
+        <input asp-for="Amount">
+    </span>
+    <span>
+      <input type="submit" value="Submit">
+    </span>
+  </form>
+
+
+
+</div>

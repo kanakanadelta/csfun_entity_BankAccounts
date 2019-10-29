@@ -16,5 +16,6 @@ namespace BankAccounts.Models
         public DateTime UpdatedAt {get;set;} = DateTime.Now;
 
         public User User { get; set; }
+
     }
 }

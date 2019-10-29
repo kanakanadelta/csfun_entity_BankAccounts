@@ -9,8 +9,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using BankAccounts.Models;
+using Microsoft.EntityFrameworkCore;
+
+using Newtonsoft.Json;
+
 namespace BankAccounts
 {
+    public static class SessionExtensions
+    {
+        public static void SetObjectAsJson(this ISession session, string key, object value)
+        {
+            session.SetString(key, JsonConvert.SerializeObject(value));
+        }
+
+        public static T GetObjectFromJson<T>(this ISession session, string key)
+        {
+            string value = session.GetString(key);
+            return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
+        }
+    }
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -23,6 +41,7 @@ namespace BankAccounts
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<BankAccountContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
             
 	        services.AddSession();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

@@ -4,5 +4,32 @@
 
 <div>
     <h1>@ViewData["Title"]</h1>
-    
+    @model LoginUser
+    <form asp-controller="Home" asp-action="LoginConfirmation">
+        <table>
+            <!-- Email -->
+            <tr>
+                <td>
+                    <label asp-for="Email"></label>
+                </td>
+                <td>
+                    <input type="email" asp-for="Email">
+                </td>
+            </tr>
+            <!-- Password -->
+            <tr>
+                <td>
+                    <label asp-for="Password"></label>
+                </td>
+                <td>
+                    <input type="password" asp-for="Password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Log In">
+                </td>
+            </tr>
+        </table>
+    </form>
 </div>

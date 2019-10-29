@@ -4,5 +4,78 @@
 
 <div>
     <h1>@ViewData["Title"]</h1>
-    
+
+    @model User
+    <form asp-controller="Home" asp-action="Register" method="POST">
+        <table class="user-table-form">
+            <tbody>
+                <!-- First Name -->
+                <tr>
+                    <td>
+                        <label for="FirstName">First Name</label>
+                    </td>
+                    <td>
+                        <input type="text" asp-for="FirstName">
+                    </td>
+                    <td>
+                        <p asp-validation-for="FirstName"></p>
+                    </td>
+                </tr>        
+                <!-- Last Name -->
+                <tr>
+                    <td>
+                        <label for="LastName">Last Name</label>
+                    </td>
+                    <td>
+                        <input type="text" asp-for="LastName">
+                    </td>
+                    <td>
+                        <p asp-validation-for="LastName"></p>
+                    </td>
+                </tr>               
+                <!-- Email -->
+                <tr>
+                    <td>
+                        <label for="Email">Email Address</label>
+                    </td>
+                    <td>
+                        <input type="email" asp-for="Email">
+                    </td>
+                    <td>
+                        <p asp-validation-for="Email"></p>
+                    </td>
+                </tr>               
+                <!-- Password -->
+                <tr>
+                    <td>
+                        <label for="Password">Password</label>
+                    </td>
+                    <td>
+                        <input type="password" asp-for="Password">
+                    </td>
+                    <td>
+                        <p asp-validation-for="Password"></p>
+                    </td>
+                </tr>
+                <!-- Confirm -->
+                <tr>
+                    <td>
+                        <label for="Confirm">Confirm Password</label>
+                    </td>
+                    <td>
+                        <input type="password" asp-for="Confirm">
+                    </td>
+                    <td>
+                        <p asp-validation-for="Confirm"></p>
+                    </td>
+                </tr>
+                <!-- Submit -->
+                <tr>
+                    <td>
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
 </div>
